@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Profile {% endblock title %}
+
+{% block content %}
+  <div class="row profile">
+    <div class="col-md-8">
+      <p>Username: {{ profile.user }}</p>
+      <p>First name: {{ profile.user.first_name }}</p>
+      <p>Last name: {{ profile.user.last_name }}</p>
+      <p>Email: {{ profile.user.email }}</p>
+      <p>Gender: {{ profile.get_gender_display }}</p>
+      <p>Credit: {{ profile.credit }}</p>
+      <p>Date of birth: {{ profile.date_of_birth }}</p>
+      <p>
+        <a href="{% url 'account:profile_edit' %}" class="btn btn-primary">
+          <i class="fas fa-edit"></i>
+        </a>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <img src="{{ profile.photo.url }}" alt="">
+    </div>
+  </div>
+{% endblock content %}
+  
+    

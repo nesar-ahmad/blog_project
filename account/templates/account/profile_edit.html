@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Edit profile {% endblock title %}
+
+{% block content %}
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row mt-5">
+      <div class="col-md-8">
+        {{ user_edit_form.as_p }}
+        {{ profile_edit_form.as_p }}
+      </div>
+      <div class="col-md-4 mt-5">
+        <img src="{{ request.user.profile.photo.url }}" alt="">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-outline-success">Save changes</button>
+  </form>
+{% endblock content %}
+  
+    
